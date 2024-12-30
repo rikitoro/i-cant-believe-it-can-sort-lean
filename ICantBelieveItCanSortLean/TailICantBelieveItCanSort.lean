@@ -1,5 +1,5 @@
 section
--- 末尾再帰バージョン：境界チェック証明、停止停止
+-- 末尾再帰バージョン：境界チェック証明、停止性証明有
 def Tail.iCantBelieveItCanSort {α : Type} [Ord α] (arr : Array α) : Array α :=
   let rec loop_i [Ord α] (arr : Array α) (i : Nat) : Array α :=
     let rec loop_j [Ord α] (arr : Array α) (i : Nat) (j : Nat) (inBounds_i : i < arr.size): Array α :=
