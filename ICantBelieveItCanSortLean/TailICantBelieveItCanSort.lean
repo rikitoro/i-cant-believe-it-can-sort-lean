@@ -21,10 +21,10 @@ def Tail.iCantBelieveItCanSort {α : Type} [Ord α] (arr : Array α) : Array α 
 
     termination_by arr.size - i
     decreasing_by
-      -- Functional induction を用いて証明
-      -- https://lean-lang.org/blog/2024-5-17-functional-induction/
       have loop_j_size_eq (arr : Array α) (i : Nat) (j : Nat) (inBounds_i : i < arr.size)
         : (iCantBelieveItCanSort.loop_i.loop_j arr i j inBounds_i).size = arr.size := by
+        -- Functional induction を用いて証明
+        -- https://lean-lang.org/blog/2024-5-17-functional-induction/
         induction arr, i, j, inBounds_i using iCantBelieveItCanSort.loop_i.loop_j.induct
         <;> (unfold iCantBelieveItCanSort.loop_i.loop_j ; simp [*])
       rw [loop_j_size_eq]
